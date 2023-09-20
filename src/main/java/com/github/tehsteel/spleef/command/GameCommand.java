@@ -27,7 +27,6 @@ public final class GameCommand extends BaseCommand {
 			return;
 		}
 
-
 		switch (args[0].toLowerCase()) {
 			case "leave" -> {
 				game.removePlayer(player);
@@ -50,9 +49,6 @@ public final class GameCommand extends BaseCommand {
 				}
 				game.endGame(true);
 			}
-
 		}
-
-
 	}
 }
