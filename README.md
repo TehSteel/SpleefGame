@@ -5,8 +5,13 @@
 
 ## Table of Contents
 
+- [Summary](#summary)
 - [Project Status](#project-status)
 - [License](#license)
+
+## Summary
+This plugin is basically for a portfolio, Most of it should work. I don't really intend to provide any installation assistant.
+Bug fixes will be fixed only via reporting the bug into the issue tracker
 
 ## Project Status
 

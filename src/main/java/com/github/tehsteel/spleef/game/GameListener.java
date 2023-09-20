@@ -33,7 +33,6 @@ public final class GameListener implements Listener {
 
 	private final SpleefPlugin plugin = SpleefPlugin.getInstance();
 
-
 	@EventHandler
 	public void onGamePlayerJoinEvent(final GamePlayerJoinEvent event) {
 		if (!(event.getGame() instanceof final SpleefGame game)) return;

@@ -12,6 +12,9 @@ import java.io.IOException;
 public final class SpleefGameCommand extends BaseCommand {
 	public SpleefGameCommand() {
 		super("spleefgame");
+
+		setPermission("spleefgame.command");
+		permissionMessage(Constants.Messages.Main.NO_PERMISSION);
 	}
 
 	@Override

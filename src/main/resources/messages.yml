@@ -2,6 +2,7 @@
 # https://docs.advntr.dev/minimessage/format.html
 MAIN:
   PREFIX: "<gray>[<aqua>SpleefGame<gray>]"
+  NO_PERMISSION: "<red>You don't have permission to use this command."
 ARENA:
   HELP_MESSAGE:
     - ""
@@ -24,3 +25,5 @@ GAME:
   FORCESTART_ALL: "<green>An administrator has <red>forcestarted <green>your game!"
   FORCESTOP_ALL: "<red>This game was forcestopped by an administrator!"
   BOSSBAR_TITLE: "<green>Game starts in %seconds%"
+STATS:
+  MENU_TITLE: "%player_name%'s Stats"

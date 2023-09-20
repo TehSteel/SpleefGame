@@ -1,5 +1,6 @@
 package com.github.tehsteel.spleef.menu;
 
+import com.github.tehsteel.spleef.Constants;
 import com.github.tehsteel.spleef.SpleefPlugin;
 import com.github.tehsteel.spleef.util.ItemCreator;
 import com.github.tehsteel.spleef.util.menu.model.Menu;
@@ -18,7 +19,7 @@ public final class StatsMenu extends Menu {
 
 	@Override
 	public String getTitle() {
-		return "<green> " + getPlayer().getName() + "'s Stats";
+		return Constants.Messages.Stats.MENU_TITLE.replace("%player_name%", getPlayer().getName());
 	}
 
 	@Override

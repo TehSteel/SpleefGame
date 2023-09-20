@@ -3,6 +3,7 @@ package com.github.tehsteel.spleef;
 import com.github.tehsteel.minigameapi.util.CustomLocation;
 import com.github.tehsteel.spleef.util.ItemCreator;
 import com.github.tehsteel.spleef.util.SpleefItem;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -28,13 +29,15 @@ public final class Constants {
 		// Setup Config
 		if (settingsCon.getString("spawnLocation") != null)
 			Settings.SPAWN_LOCATION = CustomLocation.deserialize(Objects.requireNonNull(settingsCon.getString("spawnLocation"))).toBukkitLocation();
+		else
+			Settings.SPAWN_LOCATION = Objects.requireNonNull(Bukkit.getWorld("world")).getSpawnLocation();
 
 		if (settingsCon.getString("Items.Shovel.Item") != null)
 			Settings.SHOVEL_ITEM = new SpleefItem(ItemCreator.of(Material.valueOf(settingsCon.getString("Items.Shovel.Item"))).setDisplayName(settingsCon.getString("Items.Shovel.DisplayName")).build(), settingsCon.getInt("Items.Shovel.Slot", 0));
 
 		if (settingsCon.getString("Items.QuickPlay.Item") != null)
 			Settings.COMPASS_ITEM = new SpleefItem(ItemCreator.of(Material.valueOf(settingsCon.getString("Items.QuickPlay.Item"))).setDisplayName(settingsCon.getString("Items.QuickPlay.DisplayName")).build(), settingsCon.getInt("Items.QuickPlay.Slot", 0));
-		
+
 		// Setup main locale
 		Arrays.asList(Constants.Messages.Main.class.getFields()).forEach(field -> {
 			try {
@@ -68,6 +71,7 @@ public final class Constants {
 	public static class Messages {
 		public static class Main {
 			public static String PREFIX = "<gray>[<aqua>SpleefGame<gray>]";
+			public static String NO_PERMISSION = "";
 		}
 
 		public static class Arena {
@@ -96,6 +100,10 @@ public final class Constants {
 			public static String WON = "<green>Congratulations you won!";
 			public static String FORCESTOP_ALL = "<red>This game was forcestopped by an administrator!";
 			public static String BOSSBAR_TITLE = "<green>Game starts in %seconds%";
+		}
+
+		public static class Stats {
+			public static String MENU_TITLE = "%player_name%'s Stats";
 		}
 
 

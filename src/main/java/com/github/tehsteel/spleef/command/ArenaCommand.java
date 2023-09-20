@@ -4,7 +4,6 @@ import com.github.tehsteel.minigameapi.arena.ArenaException;
 import com.github.tehsteel.spleef.Constants;
 import com.github.tehsteel.spleef.arena.model.SpleefArena;
 import com.github.tehsteel.spleef.command.model.BaseCommand;
-import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -13,8 +12,7 @@ public final class ArenaCommand extends BaseCommand {
 		super("arena");
 
 		setPermission("spleefgame.command.arena");
-		permissionMessage(MiniMessage.miniMessage().deserialize("<red>You don't have permission to use this command."));
-
+		permissionMessage(Constants.Messages.Main.NO_PERMISSION);
 	}
 
 	@Override
@@ -22,7 +20,6 @@ public final class ArenaCommand extends BaseCommand {
 		if (!(sender instanceof final Player player)) return;
 
 		if (args.length == 0) {
-
 			sendHelpMessage();
 			return;
 		}

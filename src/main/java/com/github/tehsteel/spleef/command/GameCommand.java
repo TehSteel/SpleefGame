@@ -34,12 +34,20 @@ public final class GameCommand extends BaseCommand {
 			}
 
 			case "forcestart" -> {
+				if (!player.hasPermission("spleefgame.command.forcestart")) {
+					message(Constants.Messages.Main.NO_PERMISSION);
+					return;
+				}
 				if (game.getState() != GameState.WAITING) return;
 				game.startCountdown(true);
 				message(Constants.Messages.Game.FORCESTART);
 			}
 
 			case "forceend" -> {
+				if (!player.hasPermission("spleefgame.command.forceend")) {
+					message(Constants.Messages.Main.NO_PERMISSION);
+					return;
+				}
 				game.endGame(true);
 			}
 

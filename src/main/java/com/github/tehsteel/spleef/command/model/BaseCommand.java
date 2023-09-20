@@ -3,6 +3,7 @@ package com.github.tehsteel.spleef.command.model;
 import com.github.tehsteel.spleef.SpleefPlugin;
 import com.github.tehsteel.spleef.util.PlayerUtil;
 import lombok.NonNull;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -15,6 +16,10 @@ public abstract class BaseCommand extends Command {
 
 	public BaseCommand(final String name) {
 		super(name);
+	}
+
+	public void permissionMessage(@NonNull final String permissionMessage) {
+		super.permissionMessage(MiniMessage.miniMessage().deserialize(permissionMessage));
 	}
 
 	protected abstract void run(CommandSender sender, String[] args);
@@ -53,5 +58,4 @@ public abstract class BaseCommand extends Command {
 	protected boolean consoleCheck() {
 		return !(sender instanceof Player);
 	}
-
 }
