@@ -5,7 +5,7 @@ public enum DataType {
 	MYSQL,
 	MONGODB;
 
-	public static DataType fromString(final String dataType) {
+	public static DataType fromString(final String dataType) throws DataException {
 		if (dataType.equalsIgnoreCase("mysql")) {
 			return MYSQL;
 		} else if (dataType.equalsIgnoreCase("mongodb")) {
@@ -13,6 +13,6 @@ public enum DataType {
 		}
 
 
-		return SQLITE;
+		throw new DataException("No allowed database seleceted");
 	}
 }

@@ -7,7 +7,6 @@ import lombok.Getter;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.atomic.AtomicReference;
 
 public final class PlayerManager {
 
@@ -19,19 +18,18 @@ public final class PlayerManager {
 		if (playerDataMap.get(uuid) != null)
 			return playerDataMap.get(uuid);
 
-		final AtomicReference<PlayerData> data = new AtomicReference<>();
-		plugin.getDatabaseManager().getDatabase().getPlayerDataByUuid(uuid).thenAcceptAsync(data::set);
+		PlayerData data = plugin.getDatabaseManager().getDatabase().getPlayerDataByUuid(uuid);
 
-		if (data.get() == null) {
+		if (data == null) {
 			final PlayerData playerData = new PlayerData(uuid, name);
-			data.set(playerData);
 			plugin.getDatabaseManager().getDatabase().insertData(playerData);
+			data = playerData;
 		}
 
 
-		playerDataMap.put(uuid, data.get());
+		playerDataMap.put(uuid, data);
 
-		return data.get();
+		return data;
 	}
 
 }

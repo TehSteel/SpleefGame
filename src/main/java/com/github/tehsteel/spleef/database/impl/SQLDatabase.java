@@ -133,8 +133,7 @@ public final class SQLDatabase implements IDatabase {
 	}
 
 	@Override
-	public CompletableFuture<PlayerData> getPlayerDataByUuid(final UUID uuid) {
-
+	public PlayerData getPlayerDataByUuid(final UUID uuid) {
 		final PlayerData data;
 		try (PreparedStatement statement = hikari.getConnection().prepareStatement("SELECT * FROM players WHERE uuid = ?")) {
 
@@ -156,7 +155,7 @@ public final class SQLDatabase implements IDatabase {
 			throw new RuntimeException(e);
 		}
 
-		return CompletableFuture.supplyAsync(() -> data);
+		return data;
 	}
 
 	@Override

@@ -3,7 +3,6 @@ package com.github.tehsteel.spleef.database;
 import com.github.tehsteel.spleef.player.model.PlayerData;
 
 import java.util.UUID;
-import java.util.concurrent.CompletableFuture;
 
 public interface IDatabase {
 	void connect();
@@ -12,7 +11,7 @@ public interface IDatabase {
 
 	void insertData(PlayerData data);
 
-	CompletableFuture<PlayerData> getPlayerDataByUuid(UUID uuid);
+	PlayerData getPlayerDataByUuid(UUID uuid);
 
 	boolean doesPlayerExist(UUID uuid);
 
