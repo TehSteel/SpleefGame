@@ -6,6 +6,7 @@ import com.github.tehsteel.spleef.command.ArenaCommand;
 import com.github.tehsteel.spleef.command.GameCommand;
 import com.github.tehsteel.spleef.command.SpleefGameCommand;
 import com.github.tehsteel.spleef.command.StatsCommand;
+import com.github.tehsteel.spleef.database.DataException;
 import com.github.tehsteel.spleef.database.DataType;
 import com.github.tehsteel.spleef.database.DatabaseManager;
 import com.github.tehsteel.spleef.game.GameListener;
@@ -80,7 +81,11 @@ public final class SpleefPlugin extends JavaPlugin {
 		MiniGameLib.setPlugin(this);
 
 
-		databaseManager = new DatabaseManager(DataType.fromString(Objects.requireNonNull(settingsConfig.getConfig().getString("Database.DataType"))));
+		try {
+			databaseManager = new DatabaseManager(DataType.fromString(Objects.requireNonNull(settingsConfig.getConfig().getString("Database.DataType"))));
+		} catch (final DataException e) {
+			throw new RuntimeException(e);
+		}
 		databaseManager.getDatabase().connect();
 		playerManager = new PlayerManager();
 		arenaManager = new ArenaManager();
