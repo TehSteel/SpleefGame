@@ -1,0 +1,26 @@
+# Uses MiniMessage lib
+# https://docs.advntr.dev/minimessage/format.html
+MAIN:
+  PREFIX: "<gray>[<aqua>SpleefGame<gray>]"
+ARENA:
+  HELP_MESSAGE:
+    - ""
+    - ""
+    - ""
+    - ""
+  DOSENT_EXIST: "<red>That arena doesn't exist!"
+  CREATE: "<green>You've successfully created %arena_name% arena"
+  DELETE: "<green>You've successfully <red>deleted<green> the %arena_name% arena."
+  SET_WAITING_LOCATION: "<green>You've successfully set the waiting spawn location for arena %arena_name%."
+  SET_MAX_PLAYERS: "<green>You've successfully set the max players for arena %arena_name% to %arena_max_players%."
+  SET_MIN_PLAYERS: "<green>You've successfully set the min players for arena %arena_name% to %arena_min_players%."
+  ADD_SPAWN_LOCATION: "<green>You've successfully added a spawn location for arena %arena_name%."
+  SET_MIN_Y: "<green>You've successfully set the min y for arena %arena_name% to %arena_min_y%."
+GAME:
+  NOT_IN_GAME: "<red>You're not in a game!"
+  JOIN: "<green>You've successfully joined the game!"
+  LEAVE: "<green>You've successfully <red>left <green>your game!"
+  FORCESTART: "<green>You've successfully <red>forcestarted <green>your game!"
+  FORCESTART_ALL: "<green>An administrator has <red>forcestarted <green>your game!"
+  FORCESTOP_ALL: "<red>This game was forcestopped by an administrator!"
+  BOSSBAR_TITLE: "<green>Game starts in %seconds%"

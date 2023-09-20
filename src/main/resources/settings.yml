@@ -1,0 +1,16 @@
+Database:
+  DataType: "SQLite"
+  Host: "127.0.0.1"
+  Port: 3306
+  Database: "spleef"
+  Username: "root"
+  Password: ""
+Items:
+  QuickPlay:
+    Item: "COMPASS"
+    DisplayName: "<green>Quick Play"
+    Slot: 0
+  Shovel:
+    Item: "DIAMOND_SHOVEL"
+    DisplayName: "<green>Shovel"
+    Slot: 0
