@@ -40,21 +40,19 @@ public final class PlayerListener implements Listener {
 	@EventHandler
 	public void onPlayerInteractEvent(final PlayerInteractEvent event) {
 		final Player player = event.getPlayer();
-		if (player.getInventory().getItemInMainHand().isSimilar(Constants.Settings.COMPASS_ITEM.item())) {
-			SpleefGame game = plugin.getGameManager().findFreeGame();
+		if (!player.getInventory().getItemInMainHand().isSimilar(Constants.Settings.COMPASS_ITEM.item())) return;
+		SpleefGame game = plugin.getGameManager().findFreeGame();
 
-			if (game == null) {
-				final SpleefArena arena = SpleefPlugin.getInstance().getArenaManager().getFreeArena();
+		if (game == null) {
+			final SpleefArena arena = plugin.getArenaManager().getFreeArena();
 
-				if (arena == null) {
-					PlayerUtil.message(player, "<red>No free arena for a game was available!");
-					return;
-				}
-
-				game = plugin.getGameManager().createGame(arena);
-				game.addPlayer(player);
+			if (arena == null) {
+				PlayerUtil.message(player, "<red>No free arena for a game was available!");
+				return;
 			}
 
+			game = plugin.getGameManager().createGame(arena);
+			game.addPlayer(player);
 		}
 	}
 }
